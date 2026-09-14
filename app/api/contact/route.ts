@@ -65,7 +65,7 @@ export async function POST(request: Request) {
        */
       from: "SoftwayHub Website <onboarding@resend.dev>",
 
-      to: ["info@softwayhub.com"],
+      to: ["sarfarazuop@gmail.com"],
 
       replyTo: email,
 
@@ -241,12 +241,11 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          message: "Unable to send your message.",
+          message: error.message || "Unable to send your message.",
         },
         { status: 500 }
       );
     }
-
     return NextResponse.json({
       success: true,
       id: data?.id,

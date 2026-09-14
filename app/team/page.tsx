@@ -1,51 +1,66 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
+import styles from "./team.module.css";
 
 const teamMembers = [
   {
     name: "Musawir Hussain",
     role: "Founder & CEO",
-    initials: "MH",
+    department: "Leadership",
     number: "01",
-    type: "LEADERSHIP",
+    image: "/images/team/musawir-hussain.webp",
+    position: "center 22%",
   },
   {
     name: "Sarfaraz Ali",
     role: "Co-Founder & Technical Lead",
-    initials: "SA",
+    department: "Leadership",
     number: "02",
-    type: "LEADERSHIP",
+    image: "/images/team/sarfaraz-ali.webp",
+    position: "center 18%",
   },
   {
     name: "Nasir Sultan",
     role: "HR & Business",
-    initials: "NS",
+    department: "Operations",
     number: "03",
-    type: "OPERATIONS",
+    image: "/images/team/nasir-sultan.webp",
+    position: "center 25%",
   },
   {
     name: "Salim Ali",
     role: "Team Lead & Full-Stack Developer",
-    initials: "SA",
+    department: "Engineering",
     number: "04",
-    type: "ENGINEERING",
+    image: "/images/team/salim-ali.webp",
+    position: "center 18%",
+  },
+];
+
+const values = [
+  {
+    number: "01",
+    title: "Think clearly.",
+    text: "We understand the problem before rushing into the solution.",
   },
   {
-    name: "Hassan Raza",
-    role: "Software Engineer",
-    initials: "HR",
-    number: "05",
-    type: "ENGINEERING",
+    number: "02",
+    title: "Build with purpose.",
+    text: "Every design and technical decision should have a reason.",
   },
   {
-    name: "Tahir Choudary",
-    role: "AI Optimization",
-    initials: "TC",
-    number: "06",
-    type: "AI / ENGINEERING",
+    number: "03",
+    title: "Own the outcome.",
+    text: "We care about what happens after the work leaves our screen.",
+  },
+  {
+    number: "04",
+    title: "Grow together.",
+    text: "We learn, share and support each other as one team.",
   },
 ];
 
@@ -54,151 +69,203 @@ export default function TeamPage() {
     <>
       <Navbar />
 
-      <main className="sw-team-page">
+      <main className={styles.page}>
         {/* HERO */}
-        <section className="sw-team-hero">
-          <div className="sw-team-grid" />
+        <section className={styles.hero}>
+          <div className={styles.heroGrid} />
+          <div className={styles.heroGlowOne} />
+          <div className={styles.heroGlowTwo} />
 
-          <div className="sw-container sw-team-hero-inner">
+          <div className={`sw-container ${styles.heroContainer}`}>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              className={styles.heroContent}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.65 }}
             >
-              <div className="sw-team-eyebrow sw-mono">
-                <span>TEAM / SOFTWAYHUB</span>
-                <span>PEOPLE / ENGINEERING / GROWTH</span>
+              <div className={styles.eyebrow}>
+                <span />
+                OUR PEOPLE
               </div>
 
               <h1>
-                The people
+                Meet the people
                 <br />
-                behind the <span>work.</span>
+                building <span>SoftwayHub.</span>
               </h1>
 
               <p>
-                A focused team bringing together leadership, engineering,
-                business and emerging technology to build digital products
-                that create real value.
+                A small, focused team with complementary skills and a shared
+                responsibility — to create digital solutions that make a real
+                difference.
               </p>
+
+              <div className={styles.heroStats}>
+                <div className={styles.statItem}>
+                  <div className={styles.statIcon}>◎</div>
+                  <div>
+                    <strong>04</strong>
+                    <span>Team Members</span>
+                  </div>
+                </div>
+
+                <div className={styles.statItem}>
+                  <div className={styles.statIcon}>◇</div>
+                  <div>
+                    <strong>3+</strong>
+                    <span>Core Departments</span>
+                  </div>
+                </div>
+
+                <div className={styles.statItem}>
+                  <div className={styles.statIcon}>♡</div>
+                  <div>
+                    <strong>100%</strong>
+                    <span>Committed</span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
-              className="sw-team-hero-system"
-              initial={{ opacity: 0, scale: 0.94 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.15, duration: 0.7 }}
+              className={styles.heroArt}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.75, delay: 0.08 }}
             >
-              <div className="sw-team-system-head sw-mono">
-                <span>TEAM SYSTEM</span>
-                <span className="sw-team-online">
-                  <i />
-                  ACTIVE
-                </span>
+              <div className={styles.worldDots} />
+
+              <div className={styles.heroQuote}>
+                <span>Great People</span>
+                <span>Build Great Things.</span>
+                <i />
               </div>
 
-              <div className="sw-team-system-core">
-                <div className="sw-team-core-ring ring-one" />
-                <div className="sw-team-core-ring ring-two" />
-
-                <div className="sw-team-core-center">
-                  <strong>06</strong>
-                  <span className="sw-mono">PEOPLE</span>
-                </div>
-
-                <span className="sw-team-node node-one" />
-                <span className="sw-team-node node-two" />
-                <span className="sw-team-node node-three" />
-              </div>
-
-              <div className="sw-team-system-bottom sw-mono">
-                <span>LEADERSHIP</span>
-                <span>ENGINEERING</span>
-                <span>BUSINESS</span>
-                <span>AI</span>
+              <div className={styles.heroKeywords}>
+                <span />
+                <p>PEOPLE</p>
+                <p>IDEAS</p>
+                <p>TECHNOLOGY</p>
+                <p>IMPACT</p>
               </div>
             </motion.div>
           </div>
         </section>
 
         {/* TEAM */}
-        <section className="sw-team-members">
+        <section id="our-team" className={styles.teamSection}>
           <div className="sw-container">
-            <div className="sw-team-section-head">
-              <div>
-                <span className="sw-team-label sw-mono">
-                  01 / OUR TEAM
-                </span>
-
-                <h2>
-                  Different expertise.
-                  <br />
-                  One direction.
-                </h2>
+            <div className={styles.teamHeader}>
+              <div className={styles.teamLabel}>
+                <span />
+                TEAM MEMBERS
               </div>
 
-              <p>
-                From business strategy to software engineering, our team works
-                together to turn ideas into reliable digital solutions.
-              </p>
+              <p>Different skills. One shared direction.</p>
             </div>
 
-            <div className="sw-team-list">
+            <div className={styles.teamGrid}>
               {teamMembers.map((member, index) => (
                 <motion.article
                   key={member.name}
-                  className="sw-team-member"
-                  initial={{ opacity: 0, y: 30 }}
+                  className={styles.teamCard}
+                  initial={{ opacity: 0, y: 26 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.15 }}
                   transition={{
                     duration: 0.5,
-                    delay: index * 0.05,
+                    delay: index * 0.06,
                   }}
                 >
-                  <div className="sw-team-member-number sw-mono">
-                    {member.number}
+                  <div className={styles.cardMeta}>
+                    <span>{member.number}</span>
+                    <span>{member.department}</span>
                   </div>
 
-                  {/* IMAGE PLACEHOLDER */}
-                  <div className="sw-team-photo">
-                    <span>{member.initials}</span>
+                  <div className={styles.imageWrap}>
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 25vw"
+                      className={styles.memberImage}
+                      style={{ objectPosition: member.position }}
+                    />
 
-                    <div className="sw-team-photo-corner top-left" />
-                    <div className="sw-team-photo-corner bottom-right" />
+                    <div className={styles.imageOverlay} />
+                    <div className={styles.cornerTL} />
+                    <div className={styles.cornerBR} />
                   </div>
 
-                  <div className="sw-team-member-info">
-                    <span className="sw-team-member-type sw-mono">
-                      {member.type}
-                    </span>
+                  <div className={styles.cardBottom}>
+                    <div>
+                      <h3>{member.name}</h3>
+                      <p>{member.role}</p>
+                    </div>
 
-                    <h3>{member.name}</h3>
-
-                    <p>{member.role}</p>
+                    <div className={styles.cardArrow}>↗</div>
                   </div>
-
-                  <div className="sw-team-member-mark">↗</div>
                 </motion.article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="sw-team-cta">
+        {/* VALUES */}
+        <section className={styles.valuesSection}>
           <div className="sw-container">
-            <div className="sw-team-cta-inner">
-              <div>
-                <span className="sw-mono">GROW WITH SOFTWAYHUB</span>
+            <div className={styles.valuesGrid}>
+              {values.map((item) => (
+                <article key={item.number} className={styles.valueCard}>
+                  <div className={styles.valueIcon}>{item.number}</div>
 
-                <h2>Want to build with us?</h2>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className={styles.ctaSection}>
+          <div className="sw-container">
+            <div className={styles.ctaBox}>
+              <div className={styles.ctaLeft}>
+                <div className={styles.ctaLabel}>
+                  <span />
+                  CAREERS
+                </div>
+
+                <h2>
+                  Good people build
+                  <br />
+                  <span>great things.</span>
+                </h2>
               </div>
 
-              <Link href="/careers" className="sw-team-cta-btn">
-                Explore Careers
-                <span>↗</span>
-              </Link>
+              <div className={styles.ctaMiddle}>
+                <p>
+                  We&apos;re always looking for curious minds who want to work
+                  on meaningful projects and grow with us.
+                </p>
+
+                <Link href="/careers" className={styles.ctaButton}>
+                  Explore Careers
+                  <span>→</span>
+                </Link>
+              </div>
+
+              <div className={styles.ctaVisual}>
+                <div className={styles.logoShape} />
+                <div className={styles.joinText}>
+                  <p>JOIN</p>
+                  <p>OUR TEAM</p>
+                  <span />
+                </div>
+              </div>
             </div>
           </div>
         </section>

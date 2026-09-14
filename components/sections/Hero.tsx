@@ -92,12 +92,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.34 }}
           >
-            <Link href="#contact" className="sw-hero-primary">
+            <Link href="/contact" className="sw-hero-primary">
               <span>Start a Project</span>
               <span>↗</span>
             </Link>
 
-            <Link href="#work" className="sw-hero-secondary">
+            <Link href="/#work" className="sw-hero-secondary">
               <span>Explore Our Work</span>
               <span>→</span>
             </Link>

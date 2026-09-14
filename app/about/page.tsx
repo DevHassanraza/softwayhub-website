@@ -168,7 +168,7 @@ export default function AboutPage() {
         </div>
         </section>
         {/* WHO WE ARE */}
-        <section className="sw-about-story">
+        <section className="sw-about-story" id="who-we-are">
           <div className="sw-container">
             <div className="sw-about-story-layout">
               <motion.div
