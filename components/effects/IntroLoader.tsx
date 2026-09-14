@@ -142,8 +142,12 @@ export default function IntroLoader() {
 
               <div className="sw-intro-progress">
                 <motion.div
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 0.18 }}
+                  style={{
+                    width: `${progress}%`,
+                  }}
+                  transition={{
+                    duration: 0.18,
+                  }}
                 />
               </div>
             </div>
