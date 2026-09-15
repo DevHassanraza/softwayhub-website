@@ -14,7 +14,6 @@ export default function IntroLoader() {
       return;
     }
 
-    setShowLoader(true);
     document.body.style.overflow = "hidden";
 
     let value = 0;
