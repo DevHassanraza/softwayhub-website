@@ -4,13 +4,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function IntroLoader() {
-  const [showLoader, setShowLoader] = useState(true);
+  const [showLoader, setShowLoader] = useState(() => {
+    if (typeof window === "undefined") return false;
+
+    return !sessionStorage.getItem("softwayhub-intro-seen");
+  });
+
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const alreadySeen = sessionStorage.getItem("softwayhub-intro-seen");
-
-    if (alreadySeen) {
+    if (!showLoader) {
       return;
     }
 
@@ -44,7 +47,7 @@ export default function IntroLoader() {
       window.clearTimeout(closeTimer);
       document.body.style.overflow = "";
     };
-  }, []);
+  }, [showLoader]);
 
   return (
     <AnimatePresence>
@@ -52,14 +55,8 @@ export default function IntroLoader() {
         <motion.div
           className="sw-intro-loader"
           initial={{ opacity: 1 }}
-          exit={{
-            opacity: 0,
-            y: "-100%",
-          }}
-          transition={{
-            duration: 0.75,
-            ease: [0.76, 0, 0.24, 1],
-          }}
+          exit={{ opacity: 0, y: "-100%" }}
+          transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
         >
           <div className="sw-intro-grid" />
 
@@ -103,10 +100,7 @@ export default function IntroLoader() {
                 <motion.span
                   initial={{ y: 35, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    delay: 0.15,
-                    duration: 0.55,
-                  }}
+                  transition={{ delay: 0.15, duration: 0.55 }}
                 >
                   SOFTWAY
                 </motion.span>
@@ -114,10 +108,7 @@ export default function IntroLoader() {
                 <motion.strong
                   initial={{ y: 35, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    delay: 0.25,
-                    duration: 0.55,
-                  }}
+                  transition={{ delay: 0.25, duration: 0.55 }}
                 >
                   HUB
                 </motion.strong>
@@ -141,12 +132,8 @@ export default function IntroLoader() {
 
               <div className="sw-intro-progress">
                 <motion.div
-                  style={{
-                    width: `${progress}%`,
-                  }}
-                  transition={{
-                    duration: 0.18,
-                  }}
+                  style={{ width: `${progress}%` }}
+                  transition={{ duration: 0.18 }}
                 />
               </div>
             </div>
