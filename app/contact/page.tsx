@@ -498,6 +498,159 @@ export default function ContactPage() {
           </div>
         </section>
 
+
+        {/* =====================================
+            LOCATION
+        ====================================== */}
+        <section className="sw-contact-location-section">
+          <div className="sw-contact-location-grid" aria-hidden="true" />
+          <div className="sw-contact-location-glow" aria-hidden="true" />
+
+          <div className="sw-container sw-contact-location-inner">
+            {/* LOCATION INTRO */}
+            <motion.div
+              className="sw-contact-location-copy"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.65 }}
+            >
+              <div className="sw-contact-location-topline">
+                <span className="sw-contact-section-label sw-mono">
+                  02 / FIND US
+                </span>
+
+                <span className="sw-contact-location-topline-line" />
+
+                <span className="sw-mono">
+                  SOFTWAYHUB / ISLAMABAD
+                </span>
+              </div>
+
+              <h2 className="sw-contact-location-title sw-display">
+                Built from
+                <span> Islamabad.</span>
+              </h2>
+
+              <p className="sw-contact-location-description">
+                Our base is in Islamabad, Pakistan. From here, we work
+                with businesses locally and remotely to build modern
+                digital products, websites and software solutions.
+              </p>
+            </motion.div>
+
+            {/* LOCATION CONTENT */}
+            <div className="sw-contact-location-content">
+              {/* ADDRESS */}
+              <motion.div
+                className="sw-contact-location-details"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.65 }}
+              >
+
+                <div className="sw-contact-location-detail">
+                  <span className="sw-mono">OFFICE</span>
+
+                  <strong>
+                    Office No. 9, 3rd Floor
+                  </strong>
+
+                  <p>
+                    Panorama Plaza, G-11 Markaz
+                    <br />
+                    Islamabad, Pakistan
+                  </p>
+                </div>
+
+                <div className="sw-contact-location-detail">
+                  <span className="sw-mono">EMAIL</span>
+
+                  <a href="mailto:info@softwayhub.com">
+                    info@softwayhub.com
+                    <span>↗</span>
+                  </a>
+                </div>
+
+                <div className="sw-contact-location-detail">
+                  <span className="sw-mono">BASE</span>
+
+                  <strong>
+                    Islamabad / Pakistan
+                  </strong>
+
+                  <p>
+                    Local collaboration & remote projects.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* MAP */}
+              <motion.div
+                className="sw-contact-location-map-wrap"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.65 }}
+              >
+                <div className="sw-contact-location-map-head">
+                  <span className="sw-mono">
+                    SOFTWAYHUB / HQ
+                  </span>
+
+                  <span className="sw-contact-location-map-status sw-mono">
+                    <i />
+                    ISLAMABAD
+                  </span>
+                </div>
+
+                <div className="sw-contact-location-map">
+                  <iframe
+                    src="https://www.google.com/maps?q=G-11%20Markaz%20Islamabad%20Pakistan&output=embed"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="SoftwayHub Islamabad Location"
+                  />
+
+                  <div className="sw-contact-location-map-overlay">
+                    <div className="sw-contact-location-pin">
+                      <span />
+                    </div>
+
+                    <div className="sw-contact-location-map-label">
+                      <span className="sw-mono">
+                        G-11 MARKAZ
+                      </span>
+
+                      <strong>
+                        ISLAMABAD
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="sw-contact-location-map-footer">
+                  <span className="sw-mono">
+                    ISLAMABAD / PK
+                  </span>
+
+                  <a
+                    href="https://maps.app.goo.gl/Zr4G9EAiQBLdJtkj6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    OPEN IN GOOGLE MAPS
+                    <span>↗</span>
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+
+
         {/* =====================================
             CLOSING
         ====================================== */}
@@ -516,6 +669,8 @@ export default function ContactPage() {
             </span>
           </div>
         </section>
+
+
       </main>
     </>
   );
