@@ -4,13 +4,24 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function IntroLoader() {
-  const [showLoader, setShowLoader] = useState(() => {
-    if (typeof window === "undefined") return false;
-
-    return !sessionStorage.getItem("softwayhub-intro-seen");
-  });
-
+  const [showLoader, setShowLoader] = useState(false);
   const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const alreadySeen = sessionStorage.getItem("softwayhub-intro-seen");
+
+      if (alreadySeen) {
+        return;
+      }
+
+      setShowLoader(true);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   useEffect(() => {
     if (!showLoader) {
